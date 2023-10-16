@@ -1,0 +1,37 @@
+.navbar{
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    align-items: center ;
+    justify-content: space-between;
+    z-index: 99;
+
+    .logo{
+        padding: 2px;
+        color: rgba(87, 87, 241, 1);
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .Contact{
+        display: flex;
+
+        button{
+            background-color: rgba(50, 251, 124, 1);
+        }
+    }
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    li{
+        padding: 2px;
+        margin-right: 25px;
+        font-weight: 400;
+        font-size: 22px;
+    }
+}
