@@ -35,9 +35,9 @@ const HomeContainer = () => {
 
             <div className='list'>
               <ul>
-                <li> Download our convenient  <a href='/src/assets/sample.xlsx' className='template' download="new.xlsx">template</a> </li>
-                <li> Populate the template with employee data</li>
-                <li> Effortlessly upload the completed template</li>
+                <li> 1.Download our convenient  <a href='/src/assets/sample.xlsx' className='template' download="new.xlsx">template.</a> </li>
+                <li> 2.Populate the template with employee data</li>
+                <li> 3.Effortlessly upload the completed template</li>
               </ul>
             </div>
           </div>
