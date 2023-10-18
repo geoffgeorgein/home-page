@@ -4,7 +4,7 @@ import { ProfileOutlined } from '@ant-design/icons';
 import { FileOutlined } from '@ant-design/icons';
 import { RightOutlined  } from '@ant-design/icons';
 import { DesktopOutlined  } from '@ant-design/icons';
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 
 // const save=()=>{
 //   saveAs('https://github.com/geoffgeorgein/home-page/blob/main/src/assets/sample.xlsx', "hello world.xlsx");
@@ -19,7 +19,7 @@ const HomeContainer = () => {
         <div className='Container-1'>
           <DesktopOutlined />
           <h4>Manual Update</h4>
-          <h4>Add employees one by one for small teams</h4>
+          <h4 className='employee'>Add employees one by one for small teams</h4>
           <RightOutlined />
         </div>
 

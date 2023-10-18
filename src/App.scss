@@ -34,3 +34,11 @@ ul li{
   justify-content: center;
   
 }
+
+$width: 898px;
+
+@mixin mobile {
+    @media (max-width: #{$width}){
+        @content
+    }
+}

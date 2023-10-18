@@ -1,3 +1,5 @@
+@import "../App.scss";
+
 .homeContainer{
     display: flex;
     flex-direction: column;
@@ -5,15 +7,29 @@
     align-items: center;
     justify-content: center;
 
+    @include mobile{
+        margin-top: 150px;
+      }
+
     h2{
         margin-bottom: 2px;
         color: rgba(34, 34, 34, 1);
         font-weight: 400;
+
+        @include mobile{
+            font-size: 1.2em;
+          }
     }
     .subtitle{
         margin-top: 2px;
         font-weight: 300;
+
+        @include mobile{
+            font-size: 1em;
+            width: 100%;
+          }
     }
+    
     
 
     .Container-1{
@@ -29,6 +45,15 @@
 
         h4{
             font-weight: 400;
+
+
+        }
+
+        .employee{
+
+            @include mobile{
+                display: none;
+              }
             
         }
     }
@@ -42,6 +67,7 @@
         border: 1px solid lightgray;
         border-radius: 3px;
         background-color: rgba(245, 245,245, 1);
+        flex-wrap: wrap;
         
 
         .left{

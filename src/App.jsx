@@ -1,5 +1,5 @@
 import Navbar from "./components/navbar"
-import "./App.css";
+import "./App.scss";
 import HomeContainer from "./components/homeContainer";
 
 

@@ -1,3 +1,5 @@
+@import "../App.scss";
+
 .navbar{
     position: absolute;
     top: 0;
@@ -28,6 +30,9 @@
             h3{
                 color: gray;
                 font-weight: 400;
+                @include mobile{
+                    display: none;
+                  }
             }
     
             button{
@@ -36,6 +41,12 @@
                 width: 150px;
                 height: 35px;
                 margin-left: 10px;
+
+                @include mobile{
+                    padding: 1px 10px;
+                    width: 100px;
+                    margin-right: 30px;
+                  }
                 :hover{
                    background-color:  rgb(33, 184, 88);
                 }
@@ -52,6 +63,11 @@ ul{
     list-style: none;
     display: flex;
     flex-direction: row;
+
+    @include mobile{
+        display: none;
+      }
+
 
     li{
         padding: 2px;
