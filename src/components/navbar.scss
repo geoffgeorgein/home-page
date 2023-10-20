@@ -6,6 +6,7 @@
     width: 100%;
     background-color: white;
     z-index: 99;
+    
     .navContainer{
         display: flex;
         
@@ -63,7 +64,7 @@ ul{
     list-style: none;
     display: flex;
     flex-direction: row;
-
+    font-family: 'Prata', serif;
     @include mobile{
         display: none;
       }
