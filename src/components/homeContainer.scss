@@ -75,6 +75,7 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            max-width: 300px;
 
             div{
                 display: flex;
@@ -115,6 +116,7 @@
             border-style: dashed;
             border-radius: 3px;
             font-size: 15px;
+            max-width: 230px;
 
             .browse{
                 color: blue;

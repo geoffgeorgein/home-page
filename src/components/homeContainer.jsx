@@ -1,64 +1,38 @@
 import "./homeContainer.scss";
-import { ProfileOutlined } from "@ant-design/icons";
-import { FileOutlined } from "@ant-design/icons";
-import { RightOutlined } from "@ant-design/icons";
-import { DesktopOutlined } from "@ant-design/icons";
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, message, Upload } from "antd";
-import { useState } from "react";
+import {
+  ProfileOutlined,
+  RightOutlined,
+  DesktopOutlined,
+   InboxOutlined,
+} from "@ant-design/icons";
+import {  message,} from "antd";
+import Dragger from "antd/es/upload/Dragger";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 const HomeContainer = () => {
-
-
-  const [fileList, setFileList] = useState([]);
-  const [uploading, setUploading] = useState(false);
-  const navigate = useNavigate();
-  const handleUpload = () => {
-    
-    
-    let data = new FormData();
-    data.append("file",fileList[0]);
-    setUploading(true);
-
   
+  const navigate = useNavigate();
 
-    // const values = [...data.entries()];
-    // // console.log("values",values);
 
-    fetch("http://localhost:5000/upload", {
-      method: "POST",
-      body:data,
-      
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setFileList([]);
-        message.success("upload successfully.");
-        navigate('/file')
-      })
-      .catch(() => {
-        message.error("upload failed.");
-      })
-      .finally(() => {
-        setUploading(false);
-      });
-  };
   const props = {
-    onRemove: (file) => {
-      const index = fileList.indexOf(file);
-      const newFileList = fileList.slice();
-      newFileList.splice(index, 1);
-      setFileList(newFileList);
+    name: 'file',
+    multiple: true,
+    action: 'http://localhost:5000/upload',
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully.`);
+        navigate("/file");
+      } else if (status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
     },
-    beforeUpload: (file) => {
-      setFileList([...fileList, file]);
-      return false;
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
     },
-    fileList,
   };
 
   return (
@@ -104,26 +78,21 @@ const HomeContainer = () => {
         </div>
 
         <div className="right">
-          <FileOutlined />
-          <p>Drop your document here</p>
-          {/* <p className="browse">
-            <input type="file" id="myFile" name="filename"></input>
-          </p> */}
+          
+
           <>
-            <Upload {...props}>
-              <Button icon={<UploadOutlined />}>Select File</Button>
-            </Upload>
-            <Button
-              type="primary"
-              onClick={handleUpload}
-              disabled={fileList.length === 0}
-              loading={uploading}
-              style={{
-                marginTop: 16,
-              }}
-            >
-              {uploading ? "Uploading" : "Start Upload"}
-            </Button>
+            <Dragger {...props}>
+              <p className="ant-upload-drag-icon">
+                <InboxOutlined />
+              </p>
+              <p className="ant-upload-text">
+                Click or drag file to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for a single or bulk upload. Strictly prohibited from
+                uploading company data or other banned files.
+              </p>
+            </Dragger>
           </>
         </div>
       </div>
